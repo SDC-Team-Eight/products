@@ -1,13 +1,15 @@
-const {Client} = require('pg');
+const {Pool} = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   host: "localhost",
   user: "hang",
   database: "products",
   port:5432,
 })
 
-client.connect(function(err) {
+pool.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 });
+
+module.exports = pool;

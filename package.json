@@ -1,0 +1,27 @@
+{
+  "name": "products",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDC-Team-Eight/products.git"
+  },
+  "author": "Hang Yin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SDC-Team-Eight/products/issues"
+  },
+  "homepage": "https://github.com/SDC-Team-Eight/products#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.1",
+    "pg": "^8.7.3",
+    "postgres": "^3.2.4"
+  }
+}
