@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const {
   allProducts,
-  productInfo,
+  product,
   styles,
   related
 } = require('./controller');
 
 router.get('/', allProducts);
 
-// router.get('/:producct_id', productInfo);
+router.get('/:product_id', product);
 
 // router.get('/:product_id/styles', styles);
 

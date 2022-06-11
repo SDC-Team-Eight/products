@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS products;
-CREATE DATABASE products;
+-- DROP DATABASE IF EXISTS products;
+-- CREATE DATABASE products;
 
 DROP TABLE IF EXISTS products CASCADE;
 CREATE TABLE IF NOT EXISTS products (
@@ -80,3 +80,15 @@ CREATE TABLE IF NOT EXISTS skus (
 COPY skus(id, style_id, size, quantity)
 FROM'/Users/hang/Desktop/Reactor Precourse/products/raw_data/skus.csv'
 DELIMITER ',' CSV HEADER;
+
+DROP INDEX IF EXISTS featureProductIndex;
+DROP INDEX IF EXISTS styleProductIndex;
+DROP INDEX IF EXISTS skuStyleIndex;
+DROP INDEX IF EXISTS photoStyleIndex;
+DROP INDEX IF EXISTS relatedProductIndex;
+
+CREATE INDEX featureProductIndex ON features(product_id);
+CREATE INDEX styleProductIndex ON styles(product_id);
+CREATE INDEX skuStyleIndex ON skus(style_id);
+CREATE INDEX photoStyleIndex ON photos(style_id);
+CREATE INDEX relatedProductIndex ON related(product_id);
