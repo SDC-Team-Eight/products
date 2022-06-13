@@ -1,5 +1,5 @@
 -- DROP DATABASE IF EXISTS products;
--- CREATE DATABASE products;
+--CREATE DATABASE products;
 
 DROP TABLE IF EXISTS products CASCADE;
 CREATE TABLE IF NOT EXISTS products (
@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS products (
   default_price INT
 );
 
-COPY products(id, name, slogan, description, category, default_price)
-FROM '/Users/hang/Desktop/Reactor Precourse/products/raw_data/product.csv'
+\COPY products(id, name, slogan, description, category, default_price)
+FROM '../raw_data/product.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS related CASCADE;
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS related (
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-COPY related(id, product_id, related_id)
-FROM '/Users/hang/Desktop/Reactor Precourse/products/raw_data/related.csv'
+\COPY related(id, product_id, related_id)
+FROM '../raw_data/related.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS features CASCADE;
@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS features (
   FOREIGN KEY(product_id) REFERENCES products(id)
 );
 
-COPY features(id, product_id, feature, value)
-FROM '/Users/hang/Desktop/Reactor Precourse/products/raw_data/features.csv'
+\COPY features(id, product_id, feature, value)
+FROM '../raw_data/features.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS styles CASCADE;
@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS styles (
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-COPY styles(id, product_id, name, sale_price, original_price, default_style)
-FROM'/Users/hang/Desktop/Reactor Precourse/products/raw_data/styles.csv'
+\COPY styles(id, product_id, name, sale_price, original_price, default_style)
+FROM'../raw_data/styles.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS photos CASCADE;
@@ -64,8 +64,8 @@ CREATE TABLE IF NOT EXISTS photos (
   FOREIGN KEY (style_id) REFERENCES styles(id)
 );
 
-COPY photos(id, style_id, url, thumbnail_url)
-FROM'/Users/hang/Desktop/Reactor Precourse/products/raw_data/photos.csv'
+\COPY photos(id, style_id, url, thumbnail_url)
+FROM'../raw_data/photos.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP TABLE IF EXISTS skus CASCADE;
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS skus (
   FOREIGN KEY (style_id) REFERENCES styles(id)
 );
 
-COPY skus(id, style_id, size, quantity)
-FROM'/Users/hang/Desktop/Reactor Precourse/products/raw_data/skus.csv'
+\COPY skus(id, style_id, size, quantity)
+FROM'../raw_data/skus.csv'
 DELIMITER ',' CSV HEADER;
 
 DROP INDEX IF EXISTS featureProductIndex;

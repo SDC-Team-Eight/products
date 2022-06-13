@@ -10,8 +10,8 @@ router.get('/', allProducts);
 
 router.get('/:product_id', product);
 
-// router.get('/:product_id/styles', styles);
+router.get('/:product_id/styles', styles);
 
-// router.get('/:product_id/related', related);
+router.get('/:product_id/related', related);
 
 module.exports = router;

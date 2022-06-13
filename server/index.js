@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 
-const db = require('./db');
 const router = require('./routes.js');
 
 const PORT = process.env.PORT || 3000;
@@ -18,3 +17,5 @@ app.use('/products', router);
 app.listen(PORT);
 
 console.log(`Server listening at http://localhost:${PORT}`);
+
+module.exports = app;
