@@ -5,7 +5,7 @@ module.exports = {
     return (
       pool.query(`SELECT * FROM products LIMIT ${count}`)
       // pool.query(`SELECT * FROM products`)
-        .then((res) => res.rows).catch(() => 'Not Found')
+        .then((res) => res.rows).catch((err) => console.log(err))
     );
   },
   getProduct: (product_id) => {
@@ -16,7 +16,7 @@ module.exports = {
       FROM products p JOIN features f ON p.id = f.product_id
       WHERE p.id = ${product_id}
       GROUP by p.id`)
-      .then((res) => res.rows).catch(() => 'Not Fount')
+      .then((res) => res.rows).catch((err) => console.log(err))
     );
   },
   getStyles: (product_id) => (
