@@ -10,9 +10,9 @@ const app = express();
 app.use(express.json());
 
 app.use('/products', router);
-// app.get('/', (req, res) => {
-//   res.send('Hello, World!');
-// });
+app.get('/test', (req, res) => {
+  res.send('Hello, World!');
+});
 
 app.listen(PORT);
 
