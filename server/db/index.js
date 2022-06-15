@@ -10,7 +10,7 @@ const pool = new Pool({
   // user: "hang",
   // database: "products",
   // port:5432,
-})
+});
 
 pool.connect()
   .then(() => console.log('Database is connected!'))
